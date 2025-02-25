@@ -1,0 +1,76 @@
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name" : "겔럭시 워치",
+  "description" : "이 상품은 겔럭시 워치 12입니다",
+  "price" : 300000,
+  "tags" : 123
+}
+
+ 
+
+###
+GET http://localhost:3000/products/419d97e3-a2ee-447a-9e6f-0a8d1b8fe1a2
+ 
+###
+PATCH  http://localhost:3000/products/419d97e3-a2ee-447a-9e6f-0a8d1b8fe1a2
+Content-Type: application/json
+
+{
+  "name" : "나루토",
+  "description" : "이 상품은 나루토입니다",
+  "price" : 300000,
+  "tags" : 123
+}
+###
+DELETE http://localhost:3000/products/60711f41-ef96-4f54-a9de-4e41728d0daf
+
+###
+GET http://localhost:3000/products 
+
+//Article
+###
+POST http://localhost:3000/articles
+Content-Type: application/json
+
+{
+  "title" : "이영지",
+  "content" : "차쥐뿔"
+}
+
+###
+GET http://localhost:3000/articles/81899007-544b-41ea-af53-e78b7a5ff1e2
+
+###
+PATCH http://localhost:3000/articles/81899007-544b-41ea-af53-e78b7a5ff1e2
+Content-Type: application/json
+
+{
+  "title" : "차태현현",
+  "content" : "차쥐뿔"
+}
+
+###
+DELETE http://localhost:3000/articles/81899007-544b-41ea-af53-e78b7a5ff1e2
+
+###
+GET http://localhost:3000/articles 
+
+
+//.........................comment.........................
+
+###
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+  "content" : "상품 왜이럼??",
+  "productId" : "1"
+}
+
+
+###S
+GET http://localhost:3000/content
