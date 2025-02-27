@@ -1,28 +1,9 @@
+GET http://localhost:3000/products/1/reviews
 
 ###
-POST http://localhost:3000/products
-Content-Type: application/json
 
-{
-  "name" : "겔럭시 워",
-  "description" : "이 상품은 겔럭시 워치 12입니다",
-  "price" : 300000,
-  "tags" : 123
-}
+GET http://localhost:3000/products/2/reviews
 
 ###
-GET http://localhost:3000/products/bb1e117b-4bb3-4f91-939d-82624d2c7a2d
 
-###
-PATCH  http://localhost:3000/products/55bdedf3-7e23-47b3-9cd9-71b41f46ad33
-Content-Type: application/json
-
-{
-  "name" : "아이패드드",
-  "description" : "이 상품은 겔럭시 워치 12입니다",
-  "price" : 300000,
-  "tags" : 123
-}
- 
-###
-GET http://localhost:3000/products 
+GET http://localhost:3000/products/3/reviews

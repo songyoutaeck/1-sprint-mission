@@ -1,44 +1,39 @@
-import express from "express";
-import { Prisma , PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
- 
+import express from 'express';
+
 const app = express();
-app.use(express.json());
 
-const prisma = new PrismaClient();
-dotenv.config();
+const products = {
+  1: {
+    name: 'MacBook Pro',
+    price: 2500000,
+    reviews: [
+      { id: 1, user: '민준', rating: 5 },
+      { id: 2, user: '서연', rating: 4 },
+    ],
+  },
+  2: {
+    name: 'Logitech MX Keys',
+    price: 120000,
+    reviews: [
+      { id: 3, user: '지후', rating: 5 },
+      { id: 4, user: '하윤', rating: 3 },
+    ],
+  },
+};
 
-app.post("/products",async(req,res)=>{
-  const { name , description , price , tags , createAt ,updatedAt} = req.body;
-  const product = await prisma.product.create({
-    data : {
-     name , description , price , tags  
-  }});
-  res.status(201).send(product);
-})
+function getProduct(req, res, next) {
+  const product = req.body;
 
-app.get("/products/:id",async(req,res)=>{
-  const { id } = req.params;
-  const product = await prisma.product.findUnique({
-    where : {id :id},
-    select : {
-      name : true, description: true,
-      price: true, tags: true
-    }
-  });
-  res.json( {data: product});
-})
+}
 
-app.patch("/products/:id",async(req,res)=>{
-  const id = req.params;
-  const product = await prisma.product.update({
-    where : {id},
-    data : { name : true, description: true, price: true, tags: true }
-  })
-  res.send(product);
-})
+app.get('/products/:id', getProduct, (req, res, next) => {
+  res.json(req.product);
+});
 
+app.get('/products/:id/reviews', getProduct, (req, res, next) => {
+  res.json(req.product.reviews);
+});
 
-app.listen(3000,()=>{
-  console.log("successful");
-})
+app.listen(3000, () => {
+  console.log('Server is listening on port 3000');
+});

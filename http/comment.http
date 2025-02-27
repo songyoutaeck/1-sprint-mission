@@ -1,0 +1,16 @@
+###
+POST http://localhost:3000/articles/0eb9252d-7eab-421b-8ef0-c49ea65484b6/comments
+Content-Type: application/json
+
+{
+  "content" : "상품 왜이럼??"  
+}
+
+
+###
+POST http://localhost:3000/products/f7edfb7d-1e01-407f-b82c-d9603ce8ef28/comments 
+Content-Type: application/json
+
+{
+  "content" : "상품 왜이럼??" 
+}

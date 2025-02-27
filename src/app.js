@@ -4,7 +4,8 @@ import * as dotenv from "dotenv";
 import cors from 'cors';
 import ProductsRoute from "./routes/products.js"; 
 import articleRoute from "./routes/articles.js";
-import commentRoutes from "./routes/comment.js";
+import ProductcommentRoutes from "./routes/productscomment.js";
+import ArticlecommentRoutes from "./routes/Articlescomment.js";
 
 dotenv.config();
  
@@ -16,7 +17,8 @@ const prisma = new PrismaClient();
   
 app.use("/products",ProductsRoute); 
 app.use("/articles",articleRoute);
-app.use("/comment",commentRoutes);
+app.use("/articles",ArticlecommentRoutes);
+app.use("/products",ProductcommentRoutes);
    
 //추가해야할 내용 title,content에 포함된 단어로 검색할수 있어야함.
  

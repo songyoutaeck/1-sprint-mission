@@ -33,7 +33,7 @@ model Product{
   stock         Int?
   createdAt     DateTime      @default(now())
   updatedAt     DateTime       @updatedAt
-  comment       Comment[]
+  comment       ProductComment[]
 }
  
 
@@ -43,19 +43,26 @@ model Article{
   content       String
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
-  comment       Comment[]
+  comment       ArticleComment[]
 }
 
-model Comment{
+model ProductComment{
   id          String   @id @default(uuid())
   content     String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt 
   product     Product  @relation(fields: [productId] , references: [id] , onDelete: Cascade)
   productId   String    
-  article     Article? @relation(fields: [articleId] , references: [id] , onDelete: Cascade)
-  articleId   String?   
 }
+model ArticleComment{
+  id          String   @id @default(uuid())
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt  
+  article     Article @relation(fields: [articleId] , references: [id] , onDelete: Cascade)
+  articleId   String   
+}
+
 enum Category {
   FASHION
   BEAUTY
