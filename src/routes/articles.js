@@ -72,6 +72,54 @@ articleRoute
       where : {id}, 
     });
     res.send("article");
-  })) 
+  }));
+
+articleRoute
+  .route("/:id/comments")
+  .post(asyncHandler(async(req,res)=>{
+    const { id } = req.params;
+    const { content } = req.body
+    if(!content){
+      return res.status(400).json({message : "댓글입력하라고~"})
+    }
+    const comment = await prisma.articleComment.create({
+      data : {
+        content,
+        article : {
+          connect : {id}
+        },
+      }
+    });
+    res.status(201).send(comment);
+  }))  
+  .get(asyncHandler(async(req,res)=>{ 
+    const comment = await prisma.articleComment.findMany({
+      select : {
+        id : true ,content : true , createdAt : true
+      }
+    })
+    res.send(comment);
+  }));
+
+
+articleRoute
+  .route("/:id/comments/:commentId")
+  .patch(asyncHandler(async(req,res)=>{
+    const { commentId } = req.params;
+    const comment = await prisma.articleComment.update({
+      where : {id : commentId}
+      ,data : req.body
+    })
+    res.send(comment);
+  }))
+  .delete(asyncHandler(async(req,res)=>{
+    const { commentId} = req.params;
+    const comment = await prisma.articleComment.delete({
+      where : {id : commentId}
+    })
+    res.status(200).json({ message: "댓글이 삭제되었습니다." });
+  }))
+ 
+  
 
   export default  articleRoute

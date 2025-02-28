@@ -22,8 +22,13 @@ const products = {
 };
 
 function getProduct(req, res, next) {
-  const product = req.body;
-
+  req.product = products[req.params.id];
+  if(req.product){
+    next();
+  }
+  else{
+    res.satuts(404).json({message : '존재하지 않는 상품입니다다'})
+  }
 }
 
 app.get('/products/:id', getProduct, (req, res, next) => {

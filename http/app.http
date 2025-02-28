@@ -13,10 +13,10 @@ Content-Type: application/json
  
 
 ###
-GET http://localhost:3000/products/419d97e3-a2ee-447a-9e6f-0a8d1b8fe1a2
+GET http://localhost:3000/products/b7c201b4-8173-4b70-91f2-c5c8e1e91a80
  
 ###
-PATCH  http://localhost:3000/products/419d97e3-a2ee-447a-9e6f-0a8d1b8fe1a2
+PATCH  http://localhost:3000/products/b7c201b4-8173-4b70-91f2-c5c8e1e91a80
 Content-Type: application/json
 
 {
@@ -26,12 +26,12 @@ Content-Type: application/json
   "tags" : 123
 }
 ###
-DELETE http://localhost:3000/products/60711f41-ef96-4f54-a9de-4e41728d0daf
+DELETE http://localhost:3000/products/b7c201b4-8173-4b70-91f2-c5c8e1e91a80
 
 ###
 GET http://localhost:3000/products 
 
-//Article
+////////////////////////////////////////////Article/////////////////////////////////////////
 ###
 POST http://localhost:3000/articles
 Content-Type: application/json
@@ -42,10 +42,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/articles/81899007-544b-41ea-af53-e78b7a5ff1e2
+GET http://localhost:3000/articles/6d5fa388-4460-4e9d-9547-b05afe2961f2
 
 ###
-PATCH http://localhost:3000/articles/81899007-544b-41ea-af53-e78b7a5ff1e2
+PATCH http://localhost:3000/articles/6d5fa388-4460-4e9d-9547-b05afe2961f2
 Content-Type: application/json
 
 {
@@ -54,7 +54,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/articles/81899007-544b-41ea-af53-e78b7a5ff1e2
+DELETE http://localhost:3000/articles/6d5fa388-4460-4e9d-9547-b05afe2961f2
 
 ###
 GET http://localhost:3000/articles 

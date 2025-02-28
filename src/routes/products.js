@@ -86,7 +86,57 @@ ProductsRoute
     })
     res.send("Success delete");
   }))  
+
+ProductsRoute
+  .route("/:id/comments")
+  .post(asyncHandler(async(req,res)=> {
+    const { id } = req.params;  // req.prams -> req.params
+    const { content } = req.body; // 상품 ID를 받아오기
+    
+    if (!content) {
+      return res.status(400).json({ message: "댓글입력하라고~" });
+    }
+
+    // `productId`가 있을 경우, 해당 상품과 연결
+    const comment = await prisma.productComment.create({
+      data: {
+        content,
+        product: {
+          connect: { id }  // productId를 사용하여 상품과 연결
+        } 
+      }
+    });
+
+    res.status(201).json(comment);
+  }))
+  .get(asyncHandler(async(req,res)=>{ 
+    const comment = await prisma.productComment.findMany({
+      select : {
+        id : true ,content : true , createdAt : true
+      }
+    })
+    res.send(comment);
+  }));
   
+
+ProductsRoute
+  .route("/:id/comments/:commentId")
+  .patch(asyncHandler(async(req,res)=>{
+    const { commentId } = req.params;
+    const comment = await prisma.productComment.update({
+      where : {id : commentId}
+      ,data : req.body
+    })
+    res.send(comment);
+  }))
+  .delete(asyncHandler(async(req,res)=>{
+    const { commentId} = req.params;
+    const comment = await prisma.productComment.delete({
+      where : {id : commentId}
+    })
+    res.status(200).json({ message: "댓글이 삭제되었습니다." });
+  }))
+   
   
 
 export default ProductsRoute   
