@@ -1,0 +1,9 @@
+GET http://localhost:3000/products/1/reviews
+
+###
+
+GET http://localhost:3000/products/2/reviews
+
+###
+
+GET http://localhost:3000/products/3/reviews

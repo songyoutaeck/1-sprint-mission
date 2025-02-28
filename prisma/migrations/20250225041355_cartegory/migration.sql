@@ -1,0 +1,6 @@
+-- CreateEnum
+CREATE TYPE "Category" AS ENUM ('FASHION', 'BEAUTY', 'SPORTS', 'ELECTRONICS', 'HOME_INTERIOR', 'HOUSEHOLD_SUPPLIES', 'KITCHENWARE');
+
+-- AlterTable
+ALTER TABLE "Product" ADD COLUMN     "category" "Category",
+ADD COLUMN     "stock" INTEGER;
