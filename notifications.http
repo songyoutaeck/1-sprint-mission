@@ -1,0 +1,2 @@
+GET http://localhost:3000/notifications
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODkzMzk5LCJleHAiOjE3NDc4OTY5OTl9.FbPcnUlXxPAhpDzLxKiy89l5ICPEqM0o76DDicAKQHc

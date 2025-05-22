@@ -1,0 +1,19 @@
+### 회원가입기능
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{ 
+  "email" : "thddbxor02@naver.com",
+  "nickname" : "방구대장",
+  "password" : "dbxor1401!"
+}
+
+
+### 로그인기능
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{ 
+  "email" : "thddbxor02@naver.com", 
+  "password" : "dbxor1401!"
+}
