@@ -12,6 +12,7 @@ import { CreateCommentBodyStruct, GetCommentListParamsStruct } from '../structs/
 import UnauthorizedError from '../lib/errors/UnauthorizedError';
 import ForbiddenError from '../lib/errors/ForbiddenError';
 import BadRequestError from '../lib/errors/BadRequestError';
+import { io } from '../main';
 
 export async function createProduct(req: Request, res: Response) {
   if (!req.user) {
@@ -70,10 +71,36 @@ export async function updateProduct(req: Request, res: Response) {
     throw new ForbiddenError('Should be the owner of the product');
   }
 
+  const priceChanged = existingProduct.price !== price;
+
   const updatedProduct = await prismaClient.product.update({
     where: { id },
     data: { name, description, price, tags, images },
   });
+
+    if (priceChanged) {
+    const likedUsers = await prismaClient.favorite.findMany({
+      where: { productId: id },
+      select: { userId: true },
+    });
+
+    for (const { userId } of likedUsers) {
+      await prismaClient.notification.create({
+        data: {
+          userId,
+          type: 'price-change',
+          content: `찜한 상품 "${updatedProduct.name}"의 가격이 변경되었습니다.`,
+          link: `/products/${id}`,
+        },
+      });
+
+      io.to(userId.toString()).emit('notification', {
+        type: 'price-change',
+        content: `찜한 상품 "${updatedProduct.name}"의 가격이 변경되었습니다.`,
+        link: `/products/${id}`,
+      });
+    }
+  }
 
   res.send(updatedProduct);
 }

@@ -1,2 +1,26 @@
 GET http://localhost:3000/notifications
-Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODkzMzk5LCJleHAiOjE3NDc4OTY5OTl9.FbPcnUlXxPAhpDzLxKiy89l5ICPEqM0o76DDicAKQHc
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzQ3OTAyNDU0LCJleHAiOjE3NDc5MDYwNTR9.XWCcOumlj2I8TTnKcvBAwbOLoeGuUwIhlm44ZGwsBgc
+
+
+###
+GET http://localhost:3000/notifications/unread-count
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzQ3OTAyNDU0LCJleHAiOjE3NDc5MDYwNTR9.XWCcOumlj2I8TTnKcvBAwbOLoeGuUwIhlm44ZGwsBgc
+
+
+###
+PATCH http://localhost:3000/notifications/1/read
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3OTAzMzg1LCJleHAiOjE3NDc5MDY5ODV9.1V3YTggzVFrLgtikP7vgSR4Jt75UvMf-_Olgf9ZA_hE
+
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3OTA0OTc5LCJleHAiOjE3NDc5MDg1Nzl9.plFvwA6Dadqq5N2HK18ptY56pKC8f6TN9PjtnLGVMa8
+
+{
+  "name": "테스트 상품",
+  "description": "테스트 설명",
+  "price": 10000,
+  "tags": ["의류"],
+  "images": []
+}

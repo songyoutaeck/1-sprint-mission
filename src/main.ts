@@ -16,6 +16,8 @@ io.on('connection', (socket) => {
   console.log(' 소켓 연결됨:', socket.id);
 });
 
+export { io }; 
+
 httpServer.listen(PORT, () => {
   console.log(` 서버 실행됨! http://localhost:${PORT}`);
 });

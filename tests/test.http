@@ -4,7 +4,7 @@ GET http://localhost:3000/articles?orderBy=recent
 ### 새로운 Article 만들기
 POST http://localhost:3000/articles
 Content-Type: application/json
-Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODgxMTM1LCJleHAiOjE3NDc4ODQ3MzV9.a0LLm0T4YIiDkeaTspkQSrGgGA1SltoixFEKktnJ2Tk
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODk4NTkzLCJleHAiOjE3NDc5MDIxOTN9.3Mo95O4aySErlO5zyF6SKgEzZ63esQM4NENFPRHJcpc
 
 {
     "title": "새로운 Article",
@@ -44,9 +44,9 @@ Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNz
 
 
 ### Article에 Comment 달기 테스트
-POST http://localhost:3000/articles/1/comments
+POST http://localhost:3000/comments/articles/1/comments
 Content-Type: application/json
-Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODgxMTM1LCJleHAiOjE3NDc4ODQ3MzV9.a0LLm0T4YIiDkeaTspkQSrGgGA1SltoixFEKktnJ2Tk
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzQ3OTAxMDA2LCJleHAiOjE3NDc5MDQ2MDZ9.zUlVsiWOwo9X9wobbJx5Jp8LApTgMQt-seWAobdFcKM
 
 {
     "content": "이것은 Article에 대한 테스트 Comment입니다."
