@@ -13,7 +13,7 @@ export async function updateComment(req: Request, res: Response) {
   const { id } = create(req.params, IdParamsStruct);
   const { content } = create(req.body, UpdateCommentBodyStruct);
 
-  const updatedComment = await commentsService.updateComment(id, req.user.id, content);
+  const updatedComment = await commentsService.updateComment(id, req.user.id, content as string);
   res.send(updatedComment);
 }
 
