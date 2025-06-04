@@ -13,6 +13,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+<<<<<<< HEAD
+=======
+enum NotificationType {
+  PRICE_CHANGED
+  NEW_COMMENT
+}
+
+>>>>>>> master
 model Article {
   id             Int       @id @default(autoincrement())
   title          String
@@ -92,6 +100,7 @@ model Like {
 
 model Notification {
   id        Int      @id @default(autoincrement())
+<<<<<<< HEAD
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
   type      String
@@ -100,3 +109,14 @@ model Notification {
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+=======
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  type      NotificationType
+  payload   Json
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+>>>>>>> master
