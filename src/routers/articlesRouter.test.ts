@@ -96,7 +96,6 @@ describe('articlesRouter 테스트', () => {
         });
       });
     });
-
     describe('인증이 필요한', () => {
       describe('POST/articles', () => {
         test('인증된 사용자가 게시글을 생성 -> 200', async () => {

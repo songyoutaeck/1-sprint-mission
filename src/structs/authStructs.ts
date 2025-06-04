@@ -10,4 +10,3 @@ export const LoginBodyStruct = object({
   email: nonempty(string()),
   password: nonempty(string()),
 });
-

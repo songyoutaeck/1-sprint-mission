@@ -2,10 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import path from 'path';
-import {
-  PUBLIC_PATH,
-  STATIC_PATH
-} from './lib/constants';
+import { PUBLIC_PATH, STATIC_PATH } from './lib/constants';
 import notificationsRouter from './routers/notificationsRouter';
 import articlesRouter from './routers/articlesRouter';
 import productsRouter from './routers/productsRouter';
@@ -13,10 +10,7 @@ import commentsRouter from './routers/commentsRouter';
 import imagesRouter from './routers/imagesRouter';
 import authRouter from './routers/authRouter';
 import usersRouter from './routers/usersRouter';
-import {
-  defaultNotFoundHandler,
-  globalErrorHandler
-} from './controllers/errorController';
+import { defaultNotFoundHandler, globalErrorHandler } from './controllers/errorController';
 
 const app = express();
 
