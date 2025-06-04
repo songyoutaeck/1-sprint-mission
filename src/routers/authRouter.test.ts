@@ -15,7 +15,7 @@ describe('인증 API 테스트', () => {
     test('새로운 사용자를 등록할 수 있다', async () => {
       const userData = {
         email: 'thddbxor02@example.com',
-        password: 'dbxor140',
+        password: 'dbxor1401',
         nickname: '테스트용 유저저',
         image: 'test.jpg',
       };

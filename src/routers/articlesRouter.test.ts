@@ -22,7 +22,7 @@ describe('articlesRouter 테스트', () => {
           },
         });
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
           await prismaClient.article.create({
             data: {
               title: `Test articles ${i}`,
@@ -38,7 +38,7 @@ describe('articlesRouter 테스트', () => {
         const response = await request(app).get('/articles');
         expect(response.status).toBe(200);
         expect(response.body.list.length).toBe(10);
-        expect(response.body.totalCount).toBe(10);
+        expect(response.body.totalCount).toBe(20);
         expect(response.body.list[0].title).toBe('Test articles 0');
       });
 
@@ -46,7 +46,7 @@ describe('articlesRouter 테스트', () => {
         const response = await request(app).get('/articles?page=2&pageSize=5');
         expect(response.status).toBe(200);
         expect(response.body.list.length).toBe(5);
-        expect(response.body.totalCount).toBe(10);
+        expect(response.body.totalCount).toBe(20);
         expect(response.body.list[0].title).toBe('Test articles 5');
       });
 
@@ -56,14 +56,14 @@ describe('articlesRouter 테스트', () => {
         expect(response.body.list.length).toBe(2);
         expect(response.body.totalCount).toBe(2);
         expect(response.body.list[0].title).toBe('Test articles 2');
-        expect(response.body.list[1].title).toBe('Test articles 22');
+        expect(response.body.list[1].title).toBe('Test articles 12');
       });
 
       test('최신순으로 정렬할 수 있다', async () => {
         const response = await request(app).get('/articles?orderBy=recent');
         expect(response.status).toBe(200);
-        expect(response.body.list[0].title).toBe('Test articles 9');
-        expect(response.body.list[9].title).toBe('Test articles 1');
+        expect(response.body.list[0].title).toBe('Test articles 19');
+        expect(response.body.list[9].title).toBe('Test articles 10');
       });
     });
 
@@ -71,7 +71,7 @@ describe('articlesRouter 테스트', () => {
       test('id상세조회', async () => {
         const user = await prismaClient.user.create({
           data: {
-            email: 'thddbxor02@naver.com',
+           email: 'thddbxor02@naver.com',
             password: 'dbdntl',
             nickname: '유택킹',
           },
@@ -96,6 +96,8 @@ describe('articlesRouter 테스트', () => {
         });
       });
     });
+
+
     describe('인증이 필요한', () => {
       describe('POST/articles', () => {
         test('인증된 사용자가 게시글을 생성 -> 200', async () => {
@@ -137,9 +139,9 @@ describe('articlesRouter 테스트', () => {
           const agent = request.agent(app);
 
           const user = {
-            email: 'test@example.com',
-            password: 'password123',
-            nickname: '유저',
+            email: 'thddbxor02@naver.com',
+            password: 'dbdntl',
+            nickname: '유택킹',
             image: 'user.jpg',
           };
 
@@ -172,9 +174,9 @@ describe('articlesRouter 테스트', () => {
           const agent = request.agent(app);
 
           const user = {
-            email: 'ghost@test.com',
-            password: 'ghostpw',
-            nickname: '고스트',
+            email: 'thddbxor02@naver.com',
+            password: 'dbdntl',
+            nickname: '유택킹',
             image: 'ghost.jpg',
           };
 
@@ -206,9 +208,9 @@ describe('articlesRouter 테스트', () => {
         const agent = request.agent(app);
 
         const user = {
-          email: 'deleteme@test.com',
-          password: 'delete123',
-          nickname: '삭제왕',
+            email: 'thddbxor02@naver.com',
+            password: 'dbdntl',
+            nickname: '유택킹',
           image: 'delete.jpg',
         };
 
@@ -236,9 +238,9 @@ describe('articlesRouter 테스트', () => {
         const agent = request.agent(app);
 
         const user = {
-          email: 'ghostdelete@test.com',
-          password: 'ghostpw',
-          nickname: '삭제유령',
+            email: 'thddbxor02@naver.com',
+            password: 'dbdntl',
+            nickname: '유택킹',
           image: 'ghost.jpg',
         };
 
