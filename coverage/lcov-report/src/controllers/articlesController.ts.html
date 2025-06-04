@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.78% </span>
+                <span class="strong">69.56% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/46</span>
+                <span class='fraction'>32/46</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.78% </span>
+                <span class="strong">69.56% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/46</span>
+                <span class='fraction'>32/46</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -156,40 +156,40 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -234,41 +234,41 @@ import * as articlesService from '../services/articlesService';
 import * as commentsService from '../services/commentsService';
 import * as likesService from '../services/likesService';
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >createArticle(</span>req: Request, res: Response) {
-  const data = <span class="cstat-no" title="statement not covered" >create(req.body, CreateArticleBodyStruct);</span>
-  const article = <span class="cstat-no" title="statement not covered" >await articlesService.createArticle({</span>
+export async function createArticle(req: Request, res: Response) {
+  const data = create(req.body, CreateArticleBodyStruct);
+  const article = await articlesService.createArticle({
     ...data,
     userId: req.user.id,
   });
-<span class="cstat-no" title="statement not covered" >  res.status(201).send(article);</span>
+  res.status(201).send(article);
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getArticle(</span>req: Request, res: Response) {
-  const { id } = <span class="cstat-no" title="statement not covered" >create(req.params, IdParamsStruct);</span>
-  const article = <span class="cstat-no" title="statement not covered" >await articlesService.getArticle(id);</span>
-<span class="cstat-no" title="statement not covered" >  res.send(article);</span>
+export async function getArticle(req: Request, res: Response) {
+  const { id } = create(req.params, IdParamsStruct);
+  const article = await articlesService.getArticle(id);
+  res.send(article);
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >updateArticle(</span>req: Request, res: Response) {
-  const { id } = <span class="cstat-no" title="statement not covered" >create(req.params, IdParamsStruct);</span>
-  const data = <span class="cstat-no" title="statement not covered" >create(req.body, UpdateArticleBodyStruct);</span>
-  const updatedArticle = <span class="cstat-no" title="statement not covered" >await articlesService.updateArticle(id, {</span>
+export async function updateArticle(req: Request, res: Response) {
+  const { id } = create(req.params, IdParamsStruct);
+  const data = create(req.body, UpdateArticleBodyStruct);
+  const updatedArticle = await articlesService.updateArticle(id, {
     ...data,
     userId: req.user.id,
   });
-<span class="cstat-no" title="statement not covered" >  res.send(updatedArticle);</span>
+  res.send(updatedArticle);
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >deleteArticle(</span>req: Request, res: Response) {
-  const { id } = <span class="cstat-no" title="statement not covered" >create(req.params, IdParamsStruct);</span>
-<span class="cstat-no" title="statement not covered" >  await articlesService.deleteArticle(id, req.user.id);</span>
-<span class="cstat-no" title="statement not covered" >  res.status(204).send();</span>
+export async function deleteArticle(req: Request, res: Response) {
+  const { id } = create(req.params, IdParamsStruct);
+  await articlesService.deleteArticle(id, req.user.id);
+  res.status(204).send();
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getArticleList(</span>req: Request, res: Response) {
-  const params = <span class="cstat-no" title="statement not covered" >create(req.query, GetArticleListParamsStruct);</span>
-  const result = <span class="cstat-no" title="statement not covered" >await articlesService.getArticleList(params);</span>
-<span class="cstat-no" title="statement not covered" >  res.send(result);</span>
+export async function getArticleList(req: Request, res: Response) {
+  const params = create(req.query, GetArticleListParamsStruct);
+  const result = await articlesService.getArticleList(params);
+  res.send(result);
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >createComment(</span>req: Request, res: Response) {
@@ -307,7 +307,7 @@ export async function <span class="fstat-no" title="function not covered" >delet
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-04T06:28:28.742Z
+                at 2025-06-04T08:00:03.306Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

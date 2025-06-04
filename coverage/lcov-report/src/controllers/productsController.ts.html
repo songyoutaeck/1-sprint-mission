@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.11% </span>
+                <span class="strong">35.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/45</span>
+                <span class='fraction'>16/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/9</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.11% </span>
+                <span class="strong">35.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/45</span>
+                <span class='fraction'>16/45</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -156,42 +156,42 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -234,43 +234,43 @@ import * as productsService from '../services/productsService';
 import * as commentsService from '../services/commentsService';
 import * as favoritesService from '../services/favoritesService';
 &nbsp;
-export async function createProduct(req: Request, res: Response) {
-  const data = create(req.body, CreateProductBodyStruct);
-  const createdProduct = await productsService.createProduct({
+export async function <span class="fstat-no" title="function not covered" >createProduct(</span>req: Request, res: Response) {
+  const data = <span class="cstat-no" title="statement not covered" >create(req.body, CreateProductBodyStruct);</span>
+  const createdProduct = <span class="cstat-no" title="statement not covered" >await productsService.createProduct({</span>
     ...data,
     userId: req.user.id,
   });
-  res.status(201).send(createdProduct);
+<span class="cstat-no" title="statement not covered" >  res.status(201).send(createdProduct);</span>
 }
 &nbsp;
-export async function getProduct(req: Request, res: Response) {
-  const { id } = create(req.params, IdParamsStruct);
-  const product = await productsService.getProduct(id);
-  res.send(product);
+export async function <span class="fstat-no" title="function not covered" >getProduct(</span>req: Request, res: Response) {
+  const { id } = <span class="cstat-no" title="statement not covered" >create(req.params, IdParamsStruct);</span>
+  const product = <span class="cstat-no" title="statement not covered" >await productsService.getProduct(id);</span>
+<span class="cstat-no" title="statement not covered" >  res.send(product);</span>
 }
 &nbsp;
-export async function updateProduct(req: Request, res: Response) {
-  const { id } = create(req.params, IdParamsStruct);
-  const data = create(req.body, UpdateProductBodyStruct);
-  const updatedProduct = await productsService.updateProduct(id, {
+export async function <span class="fstat-no" title="function not covered" >updateProduct(</span>req: Request, res: Response) {
+  const { id } = <span class="cstat-no" title="statement not covered" >create(req.params, IdParamsStruct);</span>
+  const data = <span class="cstat-no" title="statement not covered" >create(req.body, UpdateProductBodyStruct);</span>
+  const updatedProduct = <span class="cstat-no" title="statement not covered" >await productsService.updateProduct(id, {</span>
     ...data,
     userId: req.user.id,
   });
-  res.send(updatedProduct);
+<span class="cstat-no" title="statement not covered" >  res.send(updatedProduct);</span>
 }
 &nbsp;
-export async function deleteProduct(req: Request, res: Response) {
-  const { id } = create(req.params, IdParamsStruct);
-  await productsService.deleteProduct(id, req.user.id);
-  res.status(204).send();
+export async function <span class="fstat-no" title="function not covered" >deleteProduct(</span>req: Request, res: Response) {
+  const { id } = <span class="cstat-no" title="statement not covered" >create(req.params, IdParamsStruct);</span>
+<span class="cstat-no" title="statement not covered" >  await productsService.deleteProduct(id, req.user.id);</span>
+<span class="cstat-no" title="statement not covered" >  res.status(204).send();</span>
 }
 &nbsp;
-export async function getProductList(req: Request, res: Response) {
-  const params = create(req.query, GetProductListParamsStruct);
-  const result = await productsService.getProductList(params, {
-    userId: req.user<span class="branch-1 cbranch-no" title="branch not covered" >?.id,</span>
+export async function <span class="fstat-no" title="function not covered" >getProductList(</span>req: Request, res: Response) {
+  const params = <span class="cstat-no" title="statement not covered" >create(req.query, GetProductListParamsStruct);</span>
+  const result = <span class="cstat-no" title="statement not covered" >await productsService.getProductList(params, {</span>
+    userId: req.user?.id,
   });
-  res.send(result);
+<span class="cstat-no" title="statement not covered" >  res.send(result);</span>
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >createComment(</span>req: Request, res: Response) {
@@ -307,7 +307,7 @@ export async function <span class="fstat-no" title="function not covered" >delet
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-04T06:28:28.742Z
+                at 2025-06-04T08:00:03.306Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

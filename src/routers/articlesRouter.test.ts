@@ -22,7 +22,7 @@ describe('articlesRouter 테스트', () => {
           },
         });
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
           await prismaClient.article.create({
             data: {
               title: `Test articles ${i}`,
@@ -38,7 +38,7 @@ describe('articlesRouter 테스트', () => {
         const response = await request(app).get('/articles');
         expect(response.status).toBe(200);
         expect(response.body.list.length).toBe(10);
-        expect(response.body.totalCount).toBe(10);
+        expect(response.body.totalCount).toBe(20);
         expect(response.body.list[0].title).toBe('Test articles 0');
       });
 
@@ -46,7 +46,7 @@ describe('articlesRouter 테스트', () => {
         const response = await request(app).get('/articles?page=2&pageSize=5');
         expect(response.status).toBe(200);
         expect(response.body.list.length).toBe(5);
-        expect(response.body.totalCount).toBe(10);
+        expect(response.body.totalCount).toBe(20);
         expect(response.body.list[0].title).toBe('Test articles 5');
       });
 
@@ -56,14 +56,16 @@ describe('articlesRouter 테스트', () => {
         expect(response.body.list.length).toBe(2);
         expect(response.body.totalCount).toBe(2);
         expect(response.body.list[0].title).toBe('Test articles 2');
-        expect(response.body.list[1].title).toBe('Test articles 22');
+        console.log(response.body.list);
+        expect(response.body.list[1].title).toBe('Test articles 12');
+        console.log(response.body.list);
       });
 
       test('최신순으로 정렬할 수 있다', async () => {
         const response = await request(app).get('/articles?orderBy=recent');
         expect(response.status).toBe(200);
-        expect(response.body.list[0].title).toBe('Test articles 9');
-        expect(response.body.list[9].title).toBe('Test articles 1');
+        expect(response.body.list[0].title).toBe('Test articles 19');
+        expect(response.body.list[9].title).toBe('Test articles 10');
       });
     });
 
