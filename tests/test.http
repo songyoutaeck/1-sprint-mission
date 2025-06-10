@@ -4,6 +4,7 @@ GET http://localhost:3000/articles?orderBy=recent
 ### 새로운 Article 만들기
 POST http://localhost:3000/articles
 Content-Type: application/json
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODk4NTkzLCJleHAiOjE3NDc5MDIxOTN9.3Mo95O4aySErlO5zyF6SKgEzZ63esQM4NENFPRHJcpc
 
 {
     "title": "새로운 Article",
@@ -17,6 +18,8 @@ GET http://localhost:3000/articles/1
 ### Article 업데이트하기
 PATCH http://localhost:3000/articles/1
 Content-Type: application/json
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODgxMTM1LCJleHAiOjE3NDc4ODQ3MzV9.a0LLm0T4YIiDkeaTspkQSrGgGA1SltoixFEKktnJ2Tk
+
 
 {
     "title": "Article 업데이트",
@@ -24,26 +27,33 @@ Content-Type: application/json
 }
 
 ### Article 삭제하기
-DELETE http://localhost:3000/articles/1
+DELETE http://localhost:3000/articles/2
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODgxMTM1LCJleHAiOjE3NDc4ODQ3MzV9.a0LLm0T4YIiDkeaTspkQSrGgGA1SltoixFEKktnJ2Tk
+
 
 ### Article 좋아요 테스트
 POST http://localhost:3000/articles/1/likes
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODgxMTM1LCJleHAiOjE3NDc4ODQ3MzV9.a0LLm0T4YIiDkeaTspkQSrGgGA1SltoixFEKktnJ2Tk
+
 
 ### Article 좋아요 취소 테스트
 DELETE http://localhost:3000/articles/1/likes
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ3ODgxMTM1LCJleHAiOjE3NDc4ODQ3MzV9.a0LLm0T4YIiDkeaTspkQSrGgGA1SltoixFEKktnJ2Tk
+
 
 
 
 ### Article에 Comment 달기 테스트
-POST http://localhost:3000/articles/1/comments
+POST http://localhost:3000/comments/articles/1/comments
 Content-Type: application/json
+Cookie: access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzQ3OTAxMDA2LCJleHAiOjE3NDc5MDQ2MDZ9.zUlVsiWOwo9X9wobbJx5Jp8LApTgMQt-seWAobdFcKM
 
 {
     "content": "이것은 Article에 대한 테스트 Comment입니다."
 }
 
 ### Article의 Comment 가져오기 테스트
-GET http://localhost:3000/articles/1/comments?limit=4
+GET http://localhost:3000/articles/1/comments?limit=200
 
 ### Comment 업데이트 테스트
 PATCH http://localhost:3000/comments/1
@@ -75,18 +85,22 @@ GET http://localhost:3000/products
 GET http://localhost:3000/products/1
 
 ### Product 업데이트하기 테스트
-PATCH http://localhost:3000/products/1
+PATCH http://localhost:3000/products/2
 Content-Type: application/json
 
 {
-    "price": 110
+    "name": "업데이트된 테스트 Product",
+    "description": "이것은 업데이트된 테스트 Product 설명입니다.",
+    "price": 150,
+    "tags": ["업데이트", "Product"],
+    "images": ["업데이트된_image1.png"]
 }
 
 ### Product 삭제하기 테스트
 DELETE http://localhost:3000/products/2
 
 ### Product 좋아요 테스트
-POST http://localhost:3000/products/1/favorites
+POST http://localhost:3000/products/102/favorites
 
 ### Product 좋아요 취소 테스트
 DELETE http://localhost:3000/products/1/favorites
@@ -135,9 +149,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "image": "https://example.com/image.jpg",
-    "email": "testuser2@example.com",
-    "nickname": "testuser2",
+
+    "email": "testuser@example.com",
+    "nickname": "testuser",
     "password": "testpassword"
 }
 
@@ -182,8 +196,3 @@ GET http://localhost:3000/users/me/products?page=1&pageSize=5
 ### 내 좋아요 목록 가져오기 테스트
 GET http://localhost:3000/users/me/favorites?page=1&pageSize=5
 
-### 내 알림 조회하기
-GET http://localhost:3000/users/me/notifications?limit=5&cursor=2
-
-### 내 알림 읽기
-PATCH http://localhost:3000/notifications/1/read

@@ -1,5 +1,5 @@
 import { nullable, object, partial, string } from 'superstruct';
-import { CursorParamsStruct, PageParamsStruct } from './commonStructs';
+import { PageParamsStruct } from './commonStructs';
 
 export const UpdateMeBodyStruct = partial(
   object({
@@ -17,5 +17,3 @@ export const UpdatePasswordBodyStruct = object({
 export const GetMyProductListParamsStruct = PageParamsStruct;
 
 export const GetMyFavoriteListParamsStruct = PageParamsStruct;
-
-export const GetMyNotificationsParamsStruct = CursorParamsStruct;

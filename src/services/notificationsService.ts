@@ -20,7 +20,7 @@ export async function createNotification(
     read: false,
   });
 
-  socketService.sendNotification(notification as Notification);
+  socketService.sendNotification(notification as unknown as Notification);
 
   return notification;
 }
